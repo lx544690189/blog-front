@@ -11,7 +11,9 @@
     "core-js": "^3.6.4",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.11",
+    "vue-gemini-scrollbar": "^2.0.1",
     "vue-router": "^3.1.5",
+    "vuetify": "^2.2.20",
     "vuex": "^3.1.2"
   },
   "devDependencies": {
@@ -24,6 +26,7 @@
     "@vue/eslint-config-standard": "^5.1.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
+    "eslint-config-vuetify": "^0.6.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
