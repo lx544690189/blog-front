@@ -12,7 +12,9 @@
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>主页</v-list-item-title>
+            <v-list-item-title @click="navTo('/')">
+              主页
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item link>
@@ -20,44 +22,36 @@
             <v-icon>mdi-settings</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>分类</v-list-item-title>
+            <v-list-item-title @click="navTo('/manage/article/list')">
+              文章管理
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      clipped-left
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>lixin</v-toolbar-title>
-    </v-app-bar>
-
-    <v-content>
-      <v-container>
-        <gemini-scrollbar class="scroll-content">
-          <artical-card />
-        </gemini-scrollbar>
-      </v-container>
-    </v-content>
+    <gemini-scrollbar class="scroll-content">
+      <v-content>
+        <v-container>
+          <router-view />
+        </v-container>
+      </v-content>
+    </gemini-scrollbar>
   </v-app>
 </template>
 
 <script>
-  import ArticalCard from '@/components/ArticalCard.vue'
   export default {
-    components: {
-      ArticalCard,
-    },
-    props: {
-      source: String,
-    },
     data: () => ({
       drawer: null,
     }),
     created () {
       this.$vuetify.theme.dark = false
+    },
+    methods: {
+      navTo (to) {
+        this.$router.push(to)
+      },
     },
   }
 </script>

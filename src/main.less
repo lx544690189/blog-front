@@ -2,14 +2,35 @@
 html,body{
   overflow: hidden !important;
 }
-.scroll-content{
-  height: calc(100vh - 84px) !important;
+.theme--light{
+  .scroll-content{
+    height: calc(100vh) !important;
+  }
+  .gm-scrollbar.-vertical {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .gm-scrollbar{
+    .thumb{
+    background-color: rgba(0, 0, 0, .1) !important;
+    }
+  }
+  .gm-scroll-view{
+    padding: 0 10px;
+  }
 }
-.gm-scrollbar.-vertical {
-  background-color: rgba(255, 255, 255, .1);
-}
-.gm-scrollbar{
-  .thumb{
-  background-color: rgba(255, 255, 255, .1) !important;
+.theme--dark{
+  .scroll-content{
+    height: calc(100vh) !important;
+  }
+  .gm-scrollbar.-vertical {
+    background-color: rgba(255, 255, 255, .1);
+  }
+  .gm-scrollbar{
+    .thumb{
+    background-color: rgba(255, 255, 255, .1) !important;
+    }
+  }
+  .gm-scroll-view{
+    padding: 0 10px;
   }
 }
