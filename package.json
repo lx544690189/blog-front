@@ -14,6 +14,7 @@
     "vue-gemini-scrollbar": "^2.0.1",
     "vue-router": "^3.1.5",
     "vuetify": "^2.2.20",
+    "vuetify-loader": "^1.4.3",
     "vuex": "^3.1.2"
   },
   "devDependencies": {
@@ -25,6 +26,7 @@
     "@vue/cli-service": "~4.2.0",
     "@vue/eslint-config-standard": "^5.1.0",
     "babel-eslint": "^10.0.3",
+    "deepmerge": "^4.2.2",
     "eslint": "^6.7.2",
     "eslint-config-vuetify": "^0.6.0",
     "eslint-plugin-import": "^2.20.1",
@@ -32,8 +34,11 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.1.2",
+    "fibers": "^4.0.2",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   }
 }

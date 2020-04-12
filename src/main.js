@@ -3,9 +3,10 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
+// import Vuetify from 'vuetify'
+import Vuetify from 'vuetify/lib'
 import GeminiScrollbar from 'vue-gemini-scrollbar'
+import './main.less'
 
 Vue.use(GeminiScrollbar)
 
