@@ -6,7 +6,9 @@ import store from './store'
 import Vuetify from 'vuetify/lib'
 import GeminiScrollbar from 'vue-gemini-scrollbar'
 import './main.less'
-
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+Vue.use(mavonEditor)
 Vue.use(GeminiScrollbar)
 
 Vue.use(Vuetify)
