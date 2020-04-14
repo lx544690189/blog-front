@@ -69,6 +69,7 @@
   </div>
 </template>
 <script>
+  import { createArticle } from '@/service'
   export default {
     data: () => ({
       fab: false,
@@ -91,8 +92,15 @@
       handelBack () {
         this.$router.back()
       },
-      handelSubmit () {
-        this.saveMsgVisible = true
+      handelSubmit: async function () {
+        const res = await createArticle({
+          title: this.title,
+          content: this.editorValue,
+        })
+        if (res.success) {
+          this.saveMsgVisible = true
+          this.handelBack()
+        }
       },
     },
   }
