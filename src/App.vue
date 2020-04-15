@@ -7,22 +7,28 @@
       clipped
     >
       <v-list dense>
-        <v-list-item link>
+        <v-list-item
+          link
+          to="/"
+        >
           <v-list-item-action>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title @click="navTo('/')">
+            <v-list-item-title>
               主页
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item
+          link
+          to="/manage/article/list"
+        >
           <v-list-item-action>
             <v-icon>mdi-settings</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title @click="navTo('/manage/article/list')">
+            <v-list-item-title>
               文章管理
             </v-list-item-title>
           </v-list-item-content>

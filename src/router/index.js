@@ -20,7 +20,11 @@ const routes = [
   },
   {
     path: '/manage/article/add',
-    component: () => import(/* webpackChunkName: "articleAdd" */ '../views/manage/article/Add.vue'),
+    component: () => import(/* webpackChunkName: "articleAddOrEdit" */ '../views/manage/article/AddOrEdit.vue'),
+  },
+  {
+    path: '/manage/article/edit',
+    component: () => import(/* webpackChunkName: "articleAddOrEdit" */ '../views/manage/article/AddOrEdit.vue'),
   },
 ]
 

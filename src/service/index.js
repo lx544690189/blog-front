@@ -8,3 +8,15 @@ export function createArticle (data) {
 export function articleList (data) {
   return request.post('/article/list', data)
 }
+
+export function changeStatus (data) {
+  return request.post('/article/changeStatus', data)
+}
+
+export function articleDetail (data) {
+  return request.post('/article/detail', data)
+}
+
+export function modifyArticle (data) {
+  return request.post('/article/modify', data)
+}

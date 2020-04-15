@@ -6,13 +6,13 @@
       :lazy-validation="true"
     >
       <v-text-field
-        v-model="title"
+        v-model="article.title"
         :rules="titleRules"
         label="标题"
         required
       />
       <mavon-editor
-        v-model="editorValue"
+        v-model="article.content"
         class="mavon-editor"
       />
     </v-form>
@@ -69,17 +69,31 @@
   </div>
 </template>
 <script>
-  import { createArticle } from '@/service'
+  import { createArticle, modifyArticle, articleDetail } from '@/service'
   export default {
     data: () => ({
+      isEdit: false,
       fab: false,
       saveMsgVisible: false,
       valid: true,
-      title: '',
       titleRules: [v => !!v || 'Name is required'],
       editorValue: '',
+      article: {
+        title: '',
+        content: '',
+      },
     }),
+    mounted () {
+      this.initData()
+    },
     methods: {
+      initData: async function () {
+        this.isEdit = this.$route.path === '/manage/article/edit'
+        if (this.isEdit) {
+          const res = await articleDetail({ _id: this.$route.query.id })
+          this.article = res.data
+        }
+      },
       validate () {
         this.$refs.form.validate()
       },
@@ -93,10 +107,18 @@
         this.$router.back()
       },
       handelSubmit: async function () {
-        const res = await createArticle({
-          title: this.title,
-          content: this.editorValue,
-        })
+        const { _id, title, content } = this.article
+        const article = {
+          _id,
+          title,
+          content,
+        }
+        let res
+        if (!_id) {
+          res = await createArticle(article)
+        } else {
+          res = await modifyArticle(article)
+        }
         if (res.success) {
           this.saveMsgVisible = true
           this.handelBack()
