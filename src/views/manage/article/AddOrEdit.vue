@@ -12,8 +12,11 @@
         required
       />
       <mavon-editor
+        ref="editor"
         v-model="article.content"
         class="mavon-editor"
+        @imgAdd="onImgAdd"
+        @imgDel="onImgDel"
       />
     </v-form>
     <v-speed-dial
@@ -69,11 +72,12 @@
   </div>
 </template>
 <script>
-  import { createArticle, modifyArticle, articleDetail } from '@/service'
+  import { createArticle, modifyArticle, articleDetail, upload } from '@/service'
+  import config from '@/config'
   export default {
     data: () => ({
       isEdit: false,
-      fab: false,
+      fab: true,
       saveMsgVisible: false,
       valid: true,
       titleRules: [v => !!v || 'Name is required'],
@@ -93,6 +97,15 @@
           const res = await articleDetail({ _id: this.$route.query.id })
           this.article = res.data
         }
+      },
+      onImgAdd: async function (pos, file) {
+        var formdata = new FormData()
+        formdata.append('file', file)
+        const res = await upload(formdata)
+        this.$refs.editor.$img2Url(pos, `${config.api}/static/${res.data}`)
+      },
+      onImgDel: async function () {
+
       },
       validate () {
         this.$refs.form.validate()

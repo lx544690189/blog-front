@@ -20,3 +20,7 @@ export function articleDetail (data) {
 export function modifyArticle (data) {
   return request.post('/article/modify', data)
 }
+
+export function upload (formData) {
+  return request.post('/common/file/upload', formData)
+}

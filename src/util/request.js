@@ -1,7 +1,8 @@
 import axios from 'axios'
+import config from '../config'
 
 const instance = axios.create({
-  baseURL: 'http://127.0.0.1:7001',
+  baseURL: config.api,
 })
 
 const request = {
@@ -14,6 +15,19 @@ const request = {
       })
     })
   },
+  upload: function (url, formdata) {
+    return new Promise((resolve, reject) => {
+      instance({
+        url,
+        method: 'post',
+        data: formdata,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      }).then(res => {
+        resolve(res.data)
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
 }
-
 export default request

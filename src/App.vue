@@ -1,6 +1,6 @@
 
 <template>
-  <v-app id="inspire">
+  <v-app id="blog">
     <v-navigation-drawer
       v-model="drawer"
       app
@@ -63,5 +63,7 @@
 </script>
 
 <style lang="less">
-
+ .theme--light.v-application{
+   background: rgba(0, 0, 0, 0.001) !important;
+ }
 </style>
