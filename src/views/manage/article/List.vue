@@ -98,13 +98,14 @@
       :article="tempItem"
       :visible="articleTypeVisible"
       @onClose="articleTypeVisible = false"
+      @onOk="onTypeEdit"
     />
   </div>
 </template>
 
 <script>
   import dayjs from 'dayjs'
-  import { articleList, changeStatus } from '@/service'
+  import { articleManageList, changeStatus, modifyArticleType } from '@/service'
   import DeleteModal from './components/DeleteModal'
   import ArticleTypeModal from './components/ArticleTypeModal'
   export default {
@@ -139,7 +140,7 @@
     methods: {
       getList: async function () {
         this.loading = true
-        const { data } = await articleList()
+        const { data } = await articleManageList()
         this.loading = false
         this.list = data.map(item => {
           return {
@@ -182,6 +183,15 @@
       editItemType (item) {
         this.tempItem = item
         this.articleTypeVisible = true
+      },
+      onTypeEdit: async function ({ _id, type, img }) {
+        this.loading = true
+        await modifyArticleType({
+          _id, type, img,
+        })
+        this.loading = false
+        this.articleTypeVisible = false
+        this.getList()
       },
     },
   }

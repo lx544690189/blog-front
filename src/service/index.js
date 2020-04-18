@@ -5,6 +5,10 @@ export function createArticle (data) {
   return request.post('/article/create', data)
 }
 
+export function articleManageList (data) {
+  return request.post('/article/manage/list', data)
+}
+
 export function articleList (data) {
   return request.post('/article/list', data)
 }
@@ -19,6 +23,10 @@ export function articleDetail (data) {
 
 export function modifyArticle (data) {
   return request.post('/article/modify', data)
+}
+
+export function modifyArticleType (data) {
+  return request.post('/article/type/modify', data)
 }
 
 export function upload (formData) {

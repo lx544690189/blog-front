@@ -3,6 +3,7 @@
     v-model="visible"
     content-class="article-type-modal"
     max-width="750"
+    persistent
   >
     <v-card>
       <v-card-title class="headline">
@@ -34,6 +35,7 @@
         </v-col>
       </v-row>
       <v-row
+        v-show="data.type !== 1"
         class="type-img-upload"
         no-gutters
       >
@@ -43,7 +45,8 @@
         <v-col :cols="8">
           <v-file-input
             accept="image/*"
-            label="File input"
+            label="选择图片"
+            @change="onImgChange"
           />
         </v-col>
       </v-row>
@@ -91,7 +94,7 @@
         <v-btn
           color="blue darken-1"
           text
-          @click="$emit('onOk')"
+          @click="$emit('onOk',data)"
         >
           确认
         </v-btn>
@@ -102,7 +105,8 @@
 
 <script>
   import ArticalCard from '@/components/ArticalCard'
-  import { articleDetail } from '@/service'
+  import { upload } from '@/service'
+  import config from '@/config'
   export default {
     components: {
       ArticalCard,
@@ -133,9 +137,15 @@
     },
     methods: {
       onTypeChange (selectType) {
-        console.log('selectType: ', selectType)
         this.data.type = selectType + 1
-        console.log('this.data.type: ', this.data.type)
+        this.data.img = undefined
+      },
+      onImgChange: async function (file) {
+        var formdata = new FormData()
+        formdata.append('file', file)
+        const res = await upload(formdata)
+        const imgUrl = `${config.api}/static/${res.data}`
+        this.data.img = imgUrl
       },
     },
   }
