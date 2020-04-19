@@ -1,36 +1,13 @@
 
 html,body{
-  overflow: hidden !important;
-}
-.theme--light{
-  .scroll-content{
-    height: calc(100vh) !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar-thumb {
+    background-color: #b7b7b7;
+    border-radius: 4px;
   }
-  .gm-scrollbar.-vertical {
-    background-color: rgba(0, 0, 0, 0);
-  }
-  .gm-scrollbar{
-    .thumb{
-    background-color: rgba(0, 0, 0, .1) !important;
-    }
-  }
-  .gm-scroll-view{
-    padding: 0 10px;
-  }
-}
-.theme--dark{
-  .scroll-content{
-    height: calc(100vh) !important;
-  }
-  .gm-scrollbar.-vertical {
-    background-color: rgba(255, 255, 255, .1);
-  }
-  .gm-scrollbar{
-    .thumb{
-    background-color: rgba(255, 255, 255, .1) !important;
-    }
-  }
-  .gm-scroll-view{
-    padding: 0 10px;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #e5e5e5;
   }
 }

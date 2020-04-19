@@ -36,13 +36,11 @@
       </v-list>
     </v-navigation-drawer>
 
-    <gemini-scrollbar class="scroll-content">
-      <v-content>
-        <v-container>
-          <router-view />
-        </v-container>
-      </v-content>
-    </gemini-scrollbar>
+    <v-content>
+      <v-container>
+        <router-view />
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
@@ -65,5 +63,8 @@
 <style lang="less">
  .theme--light.v-application{
    background: rgba(0, 0, 0, 0.001) !important;
+   code{
+     box-shadow: none;
+   }
  }
 </style>
