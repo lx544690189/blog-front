@@ -53,6 +53,9 @@
           {{ item.title }}
         </div>
       </template>
+      <template v-slot:item.type="{ item }">
+        {{ item.type | articleType }}
+      </template>
       <template v-slot:item.createdAt="{ item }">
         {{ item.createdAt | formatTime }}
       </template>
@@ -117,6 +120,13 @@
       formatTime (val) {
         return dayjs(val).format('YYYY-MM-DD HH:mm:ss')
       },
+      articleType (val) {
+        return {
+          1: '无图',
+          2: '小图',
+          3: '大图',
+        }[val]
+      },
     },
     data () {
       return {
@@ -124,7 +134,8 @@
         deleteVisible: false,
         articleTypeVisible: false,
         headers: [
-          { text: '标题', value: 'title', width: 400 },
+          { text: '标题', value: 'title', width: 300 },
+          { text: '类型', value: 'type', width: 200 },
           { text: '创建时间', value: 'createdAt' },
           { text: '更新时间', value: 'updatedAt' },
           { text: '状态', value: 'status', sortable: false },

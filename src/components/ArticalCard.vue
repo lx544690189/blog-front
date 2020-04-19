@@ -1,70 +1,79 @@
 <template>
-  <div>
-    <v-card
-      :hover="true"
-      class="article"
-    >
-      <template v-if="type === 1">
-        <div class="article-title">
-          {{ title }}
+  <v-card
+    :hover="true"
+    class="article"
+    @click="$emit('click')"
+  >
+    <template v-if="type === 1">
+      <div class="article-title">
+        {{ title }}
+      </div>
+      <div class="article-time">
+        {{ time | formatTime }}
+      </div>
+      <v-card-subtitle>
+        <div class="introduce">
+          {{ content }}
         </div>
-        <div class="article-time">
-          2020-4-12 21:03:57
-        </div>
-        <v-card-subtitle>
-          <div class="introduce">
-            {{ content }}
+      </v-card-subtitle>
+    </template>
+    <template v-if="type === 2">
+      <div class="d-flex flex-no-wrap justify-space-between type-2">
+        <v-avatar
+          size="200"
+          tile
+        >
+          <v-img :src="img || defaultImg" />
+        </v-avatar>
+        <div class="right-block">
+          <div class="article-title">
+            {{ title }}
           </div>
-        </v-card-subtitle>
-      </template>
-      <template v-if="type === 2">
-        <div class="d-flex flex-no-wrap justify-space-between type-2">
-          <v-avatar
-            size="200"
-            tile
-          >
-            <v-img :src="img || defaultImg" />
-          </v-avatar>
-          <div class="right-block">
-            <div class="article-title">
-              {{ title }}
+          <div class="article-time">
+            {{ time | formatTime }}
+          </div>
+          <v-card-subtitle>
+            <div class="introduce">
+              {{ content }}
             </div>
-            <div class="article-time">
-              2020-4-12 21:03:57
-            </div>
-            <v-card-subtitle>
-              <div class="introduce">
-                {{ content }}
-              </div>
-            </v-card-subtitle>
-          </div>
+          </v-card-subtitle>
         </div>
-      </template>
-      <template v-if="type === 3">
-        <v-img
-          :src="img || defaultImg"
-          gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-          height="200px"
-        />
-        <div class="article-title">
-          {{ title }}
+      </div>
+    </template>
+    <template v-if="type === 3">
+      <v-img
+        :src="img || defaultImg"
+        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+        height="200px"
+      />
+      <div class="article-title">
+        {{ title }}
+      </div>
+      <div class="article-time">
+        {{ time | formatTime }}
+      </div>
+      <v-card-subtitle>
+        <div class="introduce">
+          {{ content }}
         </div>
-        <div class="article-time">
-          2020-4-12 21:03:57
-        </div>
-        <v-card-subtitle>
-          <div class="introduce">
-            {{ content }}
-          </div>
-        </v-card-subtitle>
-      </template>
-    </v-card>
-  </div>
+      </v-card-subtitle>
+    </template>
+  </v-card>
 </template>
 
 <script>
+  import dayjs from 'dayjs'
+  import relativeTime from 'dayjs/plugin/relativeTime'
+  import 'dayjs/locale/zh-cn'
   import defaultImg from '../assets/default-img.png'
+  dayjs.locale('zh-cn')
+  dayjs.extend(relativeTime)
   export default {
+    filters: {
+      formatTime (val) {
+        return dayjs(val).fromNow()
+      },
+    },
     props: {
       // 文章类型
       type: {
@@ -85,6 +94,11 @@
       img: {
         type: String,
         required: false,
+      },
+      // 发布时间
+      time: {
+        type: String,
+        required: true,
       },
     },
     data: () => ({

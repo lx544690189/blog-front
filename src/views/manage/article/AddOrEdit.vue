@@ -15,6 +15,8 @@
         ref="editor"
         v-model="article.content"
         class="mavon-editor"
+        code-style="googlecode"
+        default-open="preview"
         @imgAdd="onImgAdd"
         @imgDel="onImgDel"
       />

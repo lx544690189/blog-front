@@ -77,6 +77,7 @@
                 :title="data.title"
                 :content="data.title"
                 :img="data.img"
+                :time="data.createdAt"
               />
             </v-carousel-item>
           </v-carousel>
