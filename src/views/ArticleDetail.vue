@@ -1,5 +1,8 @@
 <template>
   <div class="article-detail">
+    <div class="article-title">
+      {{ article.title }}
+    </div>
     <mavon-editor
       ref="editor"
       v-model="article.content"
@@ -31,6 +34,19 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+.article-detail{
+    padding: 0 40px;
+  .article-title{
+    font-size: 34px;
+    font-weight: bold;
+    padding: 20px 20px;
+  }
+  .article-title-hr{
+    margin-bottom: 40px;
+  }
+  .v-note-panel{
+    box-shadow: 10px 10px 10px #e1e1e1;
+  }
+}
 </style>

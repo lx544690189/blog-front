@@ -1,6 +1,5 @@
 <template>
   <v-card
-    :hover="true"
     class="article"
     @click="$emit('click')"
   >

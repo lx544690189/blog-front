@@ -6,6 +6,21 @@
       app
       clipped
     >
+      <v-img
+        :aspect-ratio="16/9"
+        src="https://images.freeimages.com/images/small-previews/535/natural-wonders-1400924.jpg"
+      >
+        <v-row
+          align="end"
+          class="lightbox white--text pa-2 fill-height"
+        >
+          <v-col>
+            <div class="subheading">
+              blog
+            </div>
+          </v-col>
+        </v-row>
+      </v-img>
       <v-list dense>
         <v-list-item
           link

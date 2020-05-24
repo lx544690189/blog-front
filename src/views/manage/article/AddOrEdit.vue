@@ -148,6 +148,10 @@
   position: relative;
   .mavon-editor {
     height: calc(100vh - 140px);
+    transition: all .3s ease-in-out;
+    &.fullscreen{
+      height: 100vh;
+    }
   }
   .operation{
     position: fixed;
