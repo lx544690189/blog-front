@@ -1,46 +1,53 @@
 {
   "name": "blog-front",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "blog",
+  "productName": "blog-lixin",
+  "author": "lixin <lixin544@163.com>",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "npx quasar dev",
+    "build": "npx quasar build",
+    "build:pwa": "npx quasar build -m pwa",
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "core-js": "^3.6.4",
-    "dayjs": "^1.8.24",
-    "mavon-editor": "^2.8.3",
-    "register-service-worker": "^1.6.2",
-    "vue": "^2.6.11",
-    "vue-router": "^3.1.5",
-    "vuetify": "^2.2.20",
-    "vuetify-loader": "^1.4.3",
-    "vuex": "^3.1.2"
+    "@quasar/extras": "^1.0.0",
+    "@vue/composition-api": "^0.6.4",
+    "axios": "^0.18.1",
+    "core-js": "^3.6.5",
+    "quasar": "^1.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.2.0",
-    "@vue/cli-plugin-eslint": "~4.2.0",
-    "@vue/cli-plugin-pwa": "~4.2.0",
-    "@vue/cli-plugin-router": "~4.2.0",
-    "@vue/cli-plugin-vuex": "~4.2.0",
-    "@vue/cli-service": "~4.2.0",
-    "@vue/eslint-config-standard": "^5.1.0",
-    "babel-eslint": "^10.0.3",
-    "deepmerge": "^4.2.2",
-    "eslint": "^6.7.2",
-    "eslint-config-vuetify": "^0.6.0",
-    "eslint-plugin-import": "^2.20.1",
+    "@quasar/app": "^2.0.0",
+    "@types/node": "^10.17.15",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^6.1.2",
-    "fibers": "^4.0.2",
-    "less": "^3.0.4",
-    "less-loader": "^5.0.0",
-    "sass": "^1.26.3",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "eslint-plugin-vue": "^6.1.2"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
   }
 }
