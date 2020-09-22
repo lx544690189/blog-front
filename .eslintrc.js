@@ -93,5 +93,6 @@ module.exports = {
     'semi': ["error", "always"],
     'comma-dangle': ["error", "always-multiline"],
     'no-unused-vars': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 1
   }
 }

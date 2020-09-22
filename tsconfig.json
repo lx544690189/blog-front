@@ -3,5 +3,7 @@
   "compilerOptions": {
     "baseUrl": "."
   },
-  "include": ["./src/assets/index.d.ts"]
+  "include": [
+    "./src/**/*"
+  ]
 }
