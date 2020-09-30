@@ -9,7 +9,6 @@
     "dev": "npx quasar dev",
     "build": "npx quasar build",
     "build:pwa": "npx quasar build -m pwa",
-    "lint": "eslint --ext .js,.ts,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {

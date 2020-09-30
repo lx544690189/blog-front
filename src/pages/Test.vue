@@ -30,10 +30,15 @@
 import avatarImg from "../assets/avatar.jpeg";
 import { defineComponent } from "@vue/composition-api";
 import Firefly from "../components/Firefly.vue";
+import { queryArticleList } from "../service";
 
 export default defineComponent({
   components: { Firefly },
-  setup() {
+  setup: async () => {
+    // const res = await queryArticleList({
+    //   current: 1,
+    //   pageSize: 10,
+    // });
     return {
       avatarImg,
     };
@@ -134,43 +139,43 @@ body {
 
     &-item {
       position: relative;
-      // cursor: pointer;
-      // margin: 20px auto;
-      // height: 30px;
-      // width: 160px;
-      // line-height: 30px;
-      // text-align: center;
-      // border-radius: 20px;
+      cursor: pointer;
+      margin: 20px auto;
+      height: 30px;
+      width: 160px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 20px;
 
-      // background: linear-gradient(145deg, #2a2c32, #32343c);
-      // box-shadow: 6px 6px 13px #18191c, -4px -3px 8px #36383e;
-      // &.active {
-      //   background: #403540;
-      //   box-shadow: inset 4px 4px 4px 0px #24252b, inset 0px -1px 0px #3a3d45;
-      // }
-
-      &-btn {
-        margin: 0 auto;
-        display: block;
-        width: 80px;
-        height: 40px;
-        border-radius: 6px;
-        text-align: center;
-        line-height: 30px;
-        background: #151515;
-        box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.9);
-        overflow: hidden;
-        padding: 4px;
-        .btns {
-        border-radius: 6px;
-          height: 100%;
-          width: 100%;
-          background: #202020;
-          border-top: 1px solid #353535;
-          box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.5);
-          transition: all 0.5s;
-        }
+      background: linear-gradient(145deg, #2a2c32, #32343c);
+      box-shadow: 6px 6px 13px #18191c, -4px -3px 8px #36383e;
+      &.active {
+        background: #403540;
+        box-shadow: inset 4px 4px 4px 0px #24252b, inset 0px -1px 0px #3a3d45;
       }
+
+      // &-btn {
+      //   margin: 0 auto;
+      //   display: block;
+      //   width: 80px;
+      //   height: 40px;
+      //   border-radius: 6px;
+      //   text-align: center;
+      //   line-height: 30px;
+      //   background: #151515;
+      //   box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.9);
+      //   overflow: hidden;
+      //   padding: 4px;
+      //   .btns {
+      //   border-radius: 6px;
+      //     height: 100%;
+      //     width: 100%;
+      //     background: #202020;
+      //     border-top: 1px solid #353535;
+      //     box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.5);
+      //     transition: all 0.5s;
+      //   }
+      // }
     }
   }
 }
