@@ -6,7 +6,7 @@ const instance = axios.create({
 });
 
 const request = {
-  post: function (url:string, data:any) {
+  post: function <T> (url:string, data:any):Promise<T> {
     return new Promise((resolve, reject) => {
       instance.post(url, data).then(res => {
         resolve(res.data);
